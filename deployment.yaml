@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: <dockerhub-username>/simple-web:latest
+        image: subhadra777/cicd:latest
         ports:
         - containerPort: 80
 
