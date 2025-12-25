@@ -28,7 +28,7 @@ pipeline {
           withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
                       
           docker push $DOCKER_IMAGE:latest
-          '''
+          
         }
       }
     }
