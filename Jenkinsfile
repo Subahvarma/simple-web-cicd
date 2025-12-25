@@ -3,13 +3,16 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = "subhadra777/cicd"
+    GIT_REPO_NAME = "simple-web-cicd"
+    GIT_USERNAME = "subahvarma"
+    BRANCH = "master"
   }
 
   stages {
 
     stage('Clone Code') {
       steps {
-        git 'https://github.com/subahvarma/simple-web-cicd.git'
+        git branch: "${BRANCH}", credentialsId: 'git_token', url: 'https://github.com/Subahvarma/simple-web-cicd.git'
       }
     }
 
