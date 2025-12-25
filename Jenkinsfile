@@ -24,13 +24,9 @@ pipeline {
 
     stage('Push Image to Docker Hub') {
       steps {
-        withCredentials([usernamePassword(
-          credentialsId: 'docker',
-          usernameVariable: 'subhadra777',
-          passwordVariable: 'Subbu@123'
-        )]) {
-          sh '''
-          echo $PASS | docker login -u $USER --password-stdin
+    
+          withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
+                      
           docker push $DOCKER_IMAGE:latest
           '''
         }
